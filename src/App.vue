@@ -1,44 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <AlumnoLista :Alum="Alum"/>
+    <LoginUsers v-if="!canAccess" @changeFlag='recibiElMensaje'/>
+    <CarritoCompras/>
+    <MainPage  v-if="canAccess" @changeFlagFromMain='recibiElMensaje' :Prod='Prod'/>
   </div>
 </template>
 
 <script>
-import AlumnoLista from './components/AlumnoLista.vue'
+import LoginUsers from './components/LoginUsers.vue'
+import MainPage from './components/MainPage.vue'
+import CarritoCompras from './components/CarritoCompras.vue'
 
 export default {
   name: 'App',
   components: {
-    AlumnoLista,
+    LoginUsers,
+    MainPage,
+    CarritoCompras
     
   },
   data(){
     return{
-      Alum:[
+      canAccess: false,
+      Prod:[
             {
-                'nombre': 'Jose',
-                'apellido': 'Piccioni',
-                'edad': '39',
-                'nota': '7'
+                'nombre': 'DarkTrhone',
+                'id': '54645',
+                'author':'ag78t',
+                'precio': '389.23'
             },
             {
-                'nombre': 'Fernando',
-                'apellido': 'Rivero',
-                'edad': '30',
-                'nota': '3'
+                'nombre': 'DarkTrhone2',
+                'id': '54645',
+                'author':'ag78t',
+                'precio': '389.23'
             },
             {
-                'nombre': 'Gissella',
-                'apellido': 'Gastin',
-                'edad': '32',
-                'nota': '10'
+                'nombre': 'DarkTrhone3',
+                'id': '54645',
+                'author':'ag78t',
+                'precio': '389.23'
             },
         ],
     }
   },
   methods:{
+    recibiElMensaje(){
+      this.canAccess= !this.canAccess
+    },
     
   }
 }
@@ -51,6 +60,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>
