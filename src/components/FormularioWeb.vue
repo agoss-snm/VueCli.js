@@ -11,8 +11,9 @@
           <p>Valida tu nombre: <span class="strong">{{name}}</span></p>
           <br>
           <label for="inputEdad" class="form-label text-start">Edad</label>
-          <input type="number" class="form-control" id="inputEdad" placeholder="Edad">
+          <input type="number" class="form-control" id="inputEdad" placeholder="Edad" v-model.number="edad">
           <br>
+          <p>Edad ingresada: <span class="strong">{{edad}}</span></p>
           <label for="inputEmail" class="form-label text-start">Email</label>
           <input type="email" class="form-control" id="inputEmail" placeholder="tu@email.com">
           <br>
@@ -108,7 +109,8 @@ export default {
     return{
         name:'',
         check:[],
-        pais:''
+        pais:'',
+        edad:''
     }
   },
   methods:{
