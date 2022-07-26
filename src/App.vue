@@ -3,6 +3,7 @@
     <LoginUsers v-if="!canAccess" @changeFlag='recibiElMensaje'/>
     <CarritoCompras/>
     <MainPage  v-if="canAccess" @changeFlagFromMain='recibiElMensaje' :Prod='Prod'/>
+    <FormularioWeb/>
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import LoginUsers from './components/LoginUsers.vue'
 import MainPage from './components/MainPage.vue'
 import CarritoCompras from './components/CarritoCompras.vue'
+import FormularioWeb from './components/FormularioWeb.vue'
 
 export default {
   name: 'App',
   components: {
     LoginUsers,
     MainPage,
-    CarritoCompras
+    CarritoCompras,
+    FormularioWeb
     
   },
   data(){
